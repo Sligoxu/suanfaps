@@ -1,8 +1,11 @@
 let sort = (numbers) =>{
     for(let i=0;i<numbers.length-1;i++){
-        let index = minIndex(numbers)
-        swap(numbers,index,i)
+        let index = minIndex(numbers.slice(i))+i
+        if(index!==i){
+            swap(numbers,index,i)
+        }  
     }
+    return numbers
 }
 let minIndex = (numbers) =>{
     let index = 0
