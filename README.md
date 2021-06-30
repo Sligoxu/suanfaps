@@ -1,2 +1,2 @@
 # tips
-git push -u oringe 
+git push -u origin
