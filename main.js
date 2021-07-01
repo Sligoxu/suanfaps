@@ -1,23 +1,15 @@
-let sort = (numbers) =>{
-    for(let i=0;i<numbers.length-1;i++){
-        let index = minIndex(numbers.slice(i))+i
-        if(index!==i){
-            swap(numbers,index,i)
-        }  
-    }
-    return numbers
-}
-let minIndex = (numbers) =>{
-    let index = 0
-    for(let i=1;i<numbers.length;i++){
-        if(numbers[i]<numbers[index]){
-            index=i
+let quickSort = arr => {
+    if (arr.length <= 1) { return arr }
+    let pivotIndex = Math.floor(arr.length / 2)
+    let pivot = arr.splice(pivotIndex, 1)[0]
+    let left = []
+    let right = []
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] < pivot) {
+            left.push(arr[i])
+        } else {
+            right.push(arr[i])
         }
     }
-    return index
-}
-let swap =(array,i,j)=>{
-    let temp=array[i]
-    array[i]=array[j]
-    array[j]=temp
+    return quickSort(left).concat([pivot], quickSort(right))
 }
